@@ -428,3 +428,82 @@ h1, h2, h3, h4, h5, h6{
     padding-right: 60px;
     text-align: justify;
 }
+.page_header p1{
+    color: white;
+}
+.page_header h3{
+    color: white;
+}
+
+/* Contact Page */
+#contact-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#contact-details .details{
+    width: 40%;
+    padding-left: 50px;
+}
+#contact-details .details span{
+    font-size: 12px;
+    padding: 20px;
+}
+#contact-details .details h2{
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px;
+}
+#contact-details .details li{
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+}
+#contact-details .details li i{
+    font-size: 14px;
+    padding-right: 22px;
+}
+#contact-details .details li p{
+    margin: 0;
+    font-size: 14px;
+}
+.contact-form {
+    padding: 0.8rem 0;
+    max-width: 40rem;
+    margin: 1rem auto;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form form h1 {
+    margin-bottom: 1rem;
+    font-size: 30px;
+}
+
+.contact-form form label {
+    margin-bottom: 0.1rem;
+}
+
+.contact-form form input {
+    border: 0.5px solid #ccc;
+    outline: none;
+    padding: 0.4rem 0;
+    text-indent: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+.contact-form form button {
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    padding: 0.4rem 0.4rem;
+    margin-left: 9rem;
+    background-color: turquoise;
+    color: white;
+    cursor: pointer;
+    margin-top: 0.6rem;
+}
