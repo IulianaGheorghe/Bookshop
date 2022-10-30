@@ -103,6 +103,28 @@ app.post ('/login', (req, res) => {
     })
 })
 
+// seller route
+app.get('/seller', (req, res) => {
+    res.sendFile(path.join(staticPath, "seller.html"));
+})
+
+app.post('/seller', (req, res) => {
+    let { name, about, address, email } = req.body;
+    if (!name.length || !address.length || !about.length) {
+        return res.json({'alert': 'some information is invalid'});
+    } else {
+        //update users seller status
+        db.collection('sellers').doc(email).set(req.body)
+        .then(data => {
+            db.collection('users').doc(email).update({
+                seller: true
+            }).then(data => {
+                res.json(true);
+            })
+        })
+    }
+})
+
 app.listen(3000, () => {
     console.log('listening on port 3000.......');
 })

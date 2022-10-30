@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/seller.css">
+</head>
+<body>
+    
+    <img src="img/loader.gif" class="loaderr" alt="">
+
+    <div class="alert-box ">
+        <img src="img/error.png" class="alert-img" alt="">
+        <p class="alert-msg">Error message</p>
+    </div>
+
+    <img src="img/logo.png" class="logo" alt="">
+
+    <!-- become seller element -->
+    <div class="become-seller hide">
+        <p class="heading">become a seller</p>
+        <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi voluptas deleniti fugit repudiandae sint facere autem magnam atque totam ab doloribus pariatur, dolore ullam assumenda exercitationem quas aut corporis ipsa. Laborum dolore adipisci possimus. Iusto, quaerat non? Quaerat at minima odio? Magni ipsam veniam velit quisquam, temporibus ipsa esse iusto, est deleniti excepturi iure natus aperiam eos, voluptates doloribus porro molestiae! Officia necessitatibus quod laboriosam quas numquam aliquid quos dolores, sapiente odit assumenda. Impedit aut mollitia provident distinctio sint optio, quod inventore corporis dicta.</p>
+        <button class="btn" id="apply-btn">apply for seller account</button>
+    </div>
+
+    <!-- apply form -->
+    <div class="apply-form">
+        <input type="text" id="business-name" placeholder="Business name / Company name / Shop name">
+        <textarea id="business-add" placeholder="address"></textarea>
+        <textarea id="about" placeholder="about"></textarea>
+        <button class="submit-btn" id="apply-form-btn">Apply</button>
+    </div>
+
+    <!-- products list -->
+    <div class="product-listing hide">
+        <div class="add-product">
+            <p class="add-product-title">Add Product</p>
+            <button class="btn">Add Product</button>
+        </div>
+    </div>
+
+    <script src="js/token.js"></script>
+    <script src="js/seller.js"></script>
+
+</body>
+</html>
