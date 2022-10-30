@@ -349,7 +349,65 @@ h1, h2, h3, h4, h5, h6{
 .navbar_menu li ul li a:hover {
     color: #c09578;
 }
-
+.navbar_user a{
+    margin-left: 20px;
+    position: relative;
+}
+.navbar_user a i{
+    width: 30px;
+    cursor: pointer;
+}
+.user-img {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+.login-logout-popup{
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    top: 40px;
+    width: 200px;
+    transition: .5s;
+    border: 2px solid #f5f5f5;
+    z-index: 1;
+    cursor: pointer;
+}
+.login-logout-popup::after{
+    content: '';
+    position: absolute;
+    top: -7.5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+.navbar_user li:hover .login-logout-popup,
+.navbar_user li:focus-within .login-logout-popup{
+    display: block;
+  }
+.account-info{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+#user-btn{
+    padding: 8px;
+    background: #383838;
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
 
 /* Login Form */
 .login-form {

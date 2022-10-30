@@ -1,0 +1,123 @@
+body {
+    width: 90%;
+    display: block;
+    min-height: auto;
+    padding: 0.5vw;
+    position: relative;
+    font-family: roboto, sans-serif;
+    background-color: #e1dcdc;
+    margin-left: 40px;
+}
+
+/* Logo */
+.logo{
+    margin: 20px auto 50px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hide{
+    display: none;
+}
+
+/* become seller element */
+.become-seller{
+    border-radius: 10px;
+    background: #fff;
+    padding: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.heading{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 18px;
+}
+.des{
+    margin: 20px 0;
+    text-transform: capitalize;
+    line-height: 25px;
+}
+.btn{
+    border: none;
+    outline: none;
+    background: #383838;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* apply form */
+.apply-form input, textarea{
+    font-weight: 500;
+}
+.apply-form textarea{
+    width: 100%;
+    height: 90px;
+    resize: none;
+    padding: 10px 20px;
+}
+textarea{
+    display: block;
+    width: 300px;
+    height: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    border: none;
+    outline: none;
+    margin: 20px 0;
+    text-transform: capitalize;
+    color: #383838;
+    font-size: 14px;
+    font-family: 'roboto', sans-serif;
+}
+.apply-form input {
+    border: 0.6px solid #ccc;
+    outline: none;
+    padding: 0.6rem 0;
+    text-indent: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    width: 30%;
+}
+
+.apply-form input::placeholder {
+    font: 1.6rem;
+    color: rgb(118, 113, 113);
+}
+
+.apply-form button {
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.7rem 3rem;
+    margin-right: 7.5rem;
+    margin-top: 1.5rem;
+    background-color: turquoise;
+    color: white;
+    cursor: pointer;
+    display: block;
+}
+
+/* product listing */
+.add-product{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.add-product-title{
+    text-transform: capitalize;
+    color: #383838;
+}

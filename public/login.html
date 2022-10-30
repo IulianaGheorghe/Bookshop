@@ -56,7 +56,13 @@
                                 </ul>
                                 <ul class="navbar_user">
                                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                    <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li><a href="login.html">
+										<div class="user-img"><i class="fa fa-user" aria-hidden="true"></i>
+										<div class="login-logout-popup">
+												<p class="account-info">Logged in as: name</p>
+												<button class="btn" id="user-btn">Log out</button>
+										</div></div>	
+									</a></li>
                                     <li class="checkout">
                                         <a href="#">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -89,7 +95,7 @@
                     <input type="email" id="email" placeholder="Enter Email" />
 
                     <label for="password">Password</label>
-                    <input type="password" id="psw" placeholder="Enter Password" />
+                    <input type="password" autocomplete="off" id="psw" placeholder="Enter Password" />
 
                     <button class="submit-btn">Login</button>
                 </form>
@@ -107,7 +113,7 @@
 	<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <script src="js/token.js"></script>
     <script src="js/form.js"></script>
-
+    <script src="js/nav.js"></script>
 </body>
 
 </html>
