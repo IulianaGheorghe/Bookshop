@@ -78,7 +78,7 @@ app.get('/login', (req, res) => {
 app.post ('/login', (req, res) => {
     let { email, password } = req.body;
 
-    if (!email. length || !password.length) {
+    if (!email.length || !password.length) {
         return res.json({'alert': 'fill all the inputs'})
     }
 
@@ -123,6 +123,42 @@ app.post('/seller', (req, res) => {
             })
         })
     }
+})
+
+// add product
+app.get('/add-product', (req, res) => {
+    res.sendFile(path.join(staticPath, "addProduct.html"));
+})
+
+app.post('/add-product', (req, res) => {
+    let { title, author, des, image, actualPrice, discount, sellPrice, stock, tags, email } = req.body;
+
+    // validation
+    if (!title.length) {
+        return res.json({'alert': 'Enter book title'});
+    } else if (!author.length) {
+        return res.json({'alert': 'Enter book author'});
+    }else if (!des.length) {
+        return res.json({'alert': 'Enter book description'});
+    }else if (!image.length) {
+        return res.json({'alert': 'Upload an image'});
+    }else if (!actualPrice.length || !discount.length || !sellPrice.length) {
+        return res.json({'alert': 'You must add pricings'});
+    }else if (stock < 20) {
+        return res.json({'alert': 'You should have at least 20 items in stock'});
+    } else if (!tags.length) {
+        return res.json({'alert': 'Enter tag(s)'});
+    }
+
+    // add product
+    let docName = `${title.toLowerCase()}-${Math.floor(Math.random() * 5000)}`;
+    db.collection('products').doc(docName).set(req.body)
+    .then(data => {
+        res.json({'product': title});
+    })
+    .catch(err => {
+        return res.json({'alert': 'some error occured. Try again'});
+    })
 })
 
 app.listen(3000, () => {

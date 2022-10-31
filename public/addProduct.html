@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+
+    <link rel="stylesheet" href="css/addProduct.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <img src="img/loader.gif" class="loaderr" alt="">
+
+    <div class="alert-box ">
+        <img src="img/error.png" class="alert-img" alt="">
+        <p class="alert-msg">Error message</p>
+    </div>
+
+    <img src="img/logo.png" class="logo" alt="">
+
+    <div class="form">
+        <input type="text" id="product-name" placeholder="Book Title">
+        <input type="text" id="short-des" placeholder="Book Author">
+        <textarea id="des" placeholder="Description"></textarea>
+        
+        <!-- product image -->
+        <div class="product-info">
+            <div class="product-image"></div>
+            <div class="upload-image-sec">
+                <!-- upload input -->
+                <p class="text"><img src="img/camera.png" alt="">upload image </p>
+                <div class="upload-catalogue">
+                    <input type="file" class="fileupload" accept="image/png, image/jpg, image/jpeg" id="first-file-upload-btn" hidden>
+                    <label for="first-file-upload-btn" class="upload-image">Choose File</label>
+                </div>
+            </div>
+            <div class="product-price">
+                <input type="number" id="actual-price" placeholder="actual price">
+                <input type="number" id="discount" placeholder="discount percentage">
+                <input type="number" id="sell-price" placeholder="selling price">
+            </div>    
+        </div>
+
+        <input type="number" id="stock" min="20" placeholder="item in stock (minimum 20)">
+        <textarea id="tags" placeholder="Enter categories here, for example - Romance, Biography, Mystery, Fantasy"></textarea>
+   
+        <button class="btn" id="add-btn">add product</button>
+    </div>
+
+    
+    <script src="js/token.js"></script>
+    <script src="js/addProduct.js"></script>
+
+</body>
+</html>

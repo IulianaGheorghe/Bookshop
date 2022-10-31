@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .loaderr{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -473,7 +473,7 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 100px rgba(0, 0, 0, 0.05);
-    position: absolute;
+    position: fixed;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -481,6 +481,7 @@ h1, h2, h3, h4, h5, h6{
     opacity: 0;
     pointer-events: none;
     transition: 1s;
+    z-index: 2;
 }
 .alert-box.show{
     opacity: 1;
