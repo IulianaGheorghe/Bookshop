@@ -1,4 +1,5 @@
 let loader = document.querySelector('.loaderr');
+let user = JSON.parse(sessionStorage.user || null);
 
 const becomeSellerElement = document.querySelector('.become-seller');
 const productListingElement = document.querySelector('.product-listing');
@@ -7,14 +8,14 @@ const showApplyFormBtn = document.querySelector('#apply-btn');
 
 window.onload = () => {
     if(sessionStorage.user) {
-        let user = JSON.parse(sessionStorage.user);
         if (compareToken(user.authToken, user.email)) {
             if (!user.seller) {
                 becomeSellerElement.classList.remove('hide');
                 applyForm.classList.add('hide');
             } else {
-                productListingElement.classList.remove('hide');
                 applyForm.classList.add('hide');
+                loader.style.display = 'block';
+                setupProducts();
             }
         } else {
             location.replace('/login');
@@ -50,3 +51,19 @@ applyFormButton.addEventListener('click', () => {
         })
     }
 })
+
+const setupProducts = () => {
+    fetch('/get-products', {
+        method: 'post',
+        headers: new Headers({"Content-Type": "application/json"}),
+        body: JSON.stringify({email: user.email})
+    })
+    .then(res => res.json())
+    .then(data => {
+        loader.style.display = null;
+        productListingElement.classList.remove('hide');
+        if (data != 'no products') {
+            data.forEach(product => createProduct(product));
+        }
+    });
+}

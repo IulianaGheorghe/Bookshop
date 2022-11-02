@@ -34,13 +34,14 @@ sellingPrice.addEventListener('input', () => {
 
 // upload image handle
 const image_input = document.querySelector('.fileupload');
+const product_image = document.querySelector(".product-image");
 var uploaded_image = "";
 
 image_input.addEventListener('change', function() {
     const reader = new FileReader();
     reader.addEventListener("load", () => {
         uploaded_image = reader.result;
-        document.querySelector(".product-image").style.backgroundImage = `url(${uploaded_image})`;
+        product_image.style.backgroundImage = `url(${uploaded_image})`;
     })
     reader.readAsDataURL(this.files[0]);
 })
@@ -63,7 +64,7 @@ const validateForm = () => {
         return showAlert('Enter book author');
     }else if (!des.value.length) {
         return showAlert('Enter book description');
-    }else if (!uploaded_image.length) {
+    }else if (!uploaded_image) {
         return showAlert('Upload an image');
     }else if (!actualPrice.value.length || !discount.value.length || !sellingPrice.value.length) {
         return showAlert('You must add pricings');
@@ -95,6 +96,47 @@ addProductBtn.addEventListener('click', () => {
     if (validateForm()) {//validateForm return true or false while doing validation
         loader.style.display = 'block';
         let data = productData();
+        if (productId) {
+            data.id = productId;
+        }
         sendData('/add-product', data);
     }
 })
+
+//existing product detail handle
+
+const setFormsData = (data) => {
+    productName.value = data.title;
+    shortLine.value = data.author;
+    des.value = data.des;
+    uploaded_image = data.image;
+    if (uploaded_image) product_image.style.backgroundImage = `url(${uploaded_image})`;
+    actualPrice.value = data.actualPrice;
+    discountPercentage.value = data.discount;
+    sellingPrice.value = data.sellPrice;
+    stock.value = data.stock;
+    tags.value = data.tags;
+}
+
+const fetchProductData = () => {
+    fetch('/get-products', {
+        method: 'post',
+        headers: new Headers({'Content-Type': 'application/json'}),
+        body: JSON.stringify({email: user.email, id: productId})
+    })
+    .then((res) => res.json())
+    .then(data => {
+        setFormsData(data);
+    })
+    .catch(err => {
+        location.replace('/seller');
+    })
+}
+
+let productId = null;
+if (location.pathname != '/add-product') {
+    productId = decodeURI(location.pathname.split('/').pop());
+
+    fetchProductData();
+}
+

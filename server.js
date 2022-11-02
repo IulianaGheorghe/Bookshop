@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 
 //firebase admin setup
-let serviceAccount = require("./ecom-website-33ca3-firebase-adminsdk-uazhi-ed8cc28b94.json");
+let serviceAccount = require("D:\\ecom-website-33ca3-firebase-adminsdk-uazhi-ed8cc28b94.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -130,8 +130,12 @@ app.get('/add-product', (req, res) => {
     res.sendFile(path.join(staticPath, "addProduct.html"));
 })
 
+app.get('/add-product/:id', (req, res) => {
+    res.sendFile(path.join(staticPath, "addProduct.html"));
+})
+
 app.post('/add-product', (req, res) => {
-    let { title, author, des, image, actualPrice, discount, sellPrice, stock, tags, email } = req.body;
+    let { title, author, des, image, actualPrice, discount, sellPrice, stock, tags, email, id } = req.body;
 
     // validation
     if (!title.length) {
@@ -151,7 +155,7 @@ app.post('/add-product', (req, res) => {
     }
 
     // add product
-    let docName = `${title.toLowerCase()}-${Math.floor(Math.random() * 5000)}`;
+    let docName = id == undefined ? `${title.toLowerCase()}-${Math.floor(Math.random() * 5000)}` : id;
     db.collection('products').doc(docName).set(req.body)
     .then(data => {
         res.json({'product': title});
@@ -159,6 +163,46 @@ app.post('/add-product', (req, res) => {
     .catch(err => {
         return res.json({'alert': 'some error occured. Try again'});
     })
+})
+
+// get products
+app.post('/get-products', (req, res) => {
+    let { email, id } = req.body;
+    let docRef = id ? db.collection('products').doc(id) : db.collection('products').where('email', '==', email);
+
+    docRef.get()
+    .then(products => {
+        if (products.empty) {
+            return res.json('no products');
+        }
+        let productArr = [];
+        if (id) {
+            return res.json(products.data());
+        } else {
+            products.forEach(item => {
+                let data = item.data();
+                data.id = item.id;
+                productArr.push(data);
+            })
+            res.json(productArr)
+        }
+    })
+})
+
+app.post('/delete-product', (req, res) => {
+    let { id } = req.body;
+
+    db.collection('products').doc(id).delete()
+    .then(data => {
+        res.json('success');
+    }).catch(err => {
+        res.json('err');
+    })
+})
+
+//product page
+app.get('/products/:id', (req, res) => {
+    res.sendFile(path.join(staticPath, "product.html"));
 })
 
 app.listen(3000, () => {
