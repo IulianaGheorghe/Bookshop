@@ -125,6 +125,11 @@ app.post('/seller', (req, res) => {
     }
 })
 
+// shop route
+app.get('/shop', (req, res) => {
+    res.sendFile(path.join(staticPath, "shop.html"));
+})
+
 // add product
 app.get('/add-product', (req, res) => {
     res.sendFile(path.join(staticPath, "addProduct.html"));

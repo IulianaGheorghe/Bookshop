@@ -3,7 +3,7 @@ const createNav = () => {
 
     nav.innerHTML = `
     <ul class="navbar_menu">
-        <li class="active"><a href="#">Shop <iconify-icon icon="ion:chevron-down"></iconify-icon></a>
+        <li class="active"><a href="../shop.html">Shop <iconify-icon icon="ion:chevron-down"></iconify-icon></a>
             <ul class="sub_menu">
                 <li><a href="#">Romance</a></li>
                 <li><a href="#">Sci-Fi & Fantasy</a></li>
