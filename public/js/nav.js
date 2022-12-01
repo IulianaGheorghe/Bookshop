@@ -5,10 +5,10 @@ const createNav = () => {
     <ul class="navbar_menu">
         <li class="active"><a href="../shop.html">Shop <iconify-icon icon="ion:chevron-down"></iconify-icon></a>
             <ul class="sub_menu">
-                <li><a href="#">Romance</a></li>
-                <li><a href="#">Sci-Fi & Fantasy</a></li>
-                <li><a href="#">Mystery & Crime</a></li>
-                <li><a href="#">Biography</a></li>
+                <li><a href="../romance.html">Romance</a></li>
+                <li><a href="../fantasy.html">Sci-Fi & Fantasy</a></li>
+                <li><a href="../mystery.html">Mystery & Crime</a></li>
+                <li><a href="../biography.html">Biography</a></li>
             </ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../about.html">About</a></li>

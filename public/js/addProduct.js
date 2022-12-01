@@ -77,6 +77,8 @@ const validateForm = () => {
 }
 
 const productData = () => {
+    let tagArr = tags.value.split(',');
+    tagArr.forEach((item, i) => tagArr[i] = tagArr[i].trim());
     return data = {
         title: productName.value,
         author: shortLine.value,
@@ -86,7 +88,7 @@ const productData = () => {
         discount: discountPercentage.value,
         sellPrice: sellingPrice.value,
         stock: stock.value,
-        tags: tags.value,
+        tags: tagArr,
         email: user.email
     }
 }
