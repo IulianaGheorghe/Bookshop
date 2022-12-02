@@ -172,13 +172,17 @@ app.post('/add-product', (req, res) => {
 
 // get products
 app.post('/get-products', (req, res) => {
-    let { email, id, tag } = req.body;
+    let { email, id, tag, author, title } = req.body;
     let docRef;
     if (id) {
         docRef = db.collection('products').doc(id);
     } else if (tag) {
         docRef = db.collection('products').where('tags', 'array-contains', tag);
-    } else {
+    } else if (title) {
+        docRef = db.collection('products').where('title', '==' , title);
+    }  else if (author) {
+        docRef = db.collection('products').where('author', '==', author);
+    }  else {
         docRef = db.collection('products').where('email', '==', email);
     } 
 
@@ -215,6 +219,10 @@ app.post('/delete-product', (req, res) => {
 //product page
 app.get('/products/:id', (req, res) => {
     res.sendFile(path.join(staticPath, "product.html"));
+})
+
+app.get('/search/:key', (req, res) => {
+    res.sendFile(path.join(staticPath, "search.html"));
 })
 
 app.listen(3000, () => {
