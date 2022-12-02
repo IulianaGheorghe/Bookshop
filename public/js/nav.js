@@ -15,7 +15,12 @@ const createNav = () => {
         <li><a href="../contacts.html">Contacts</a></li>
     </ul>
     <ul class="navbar_user">
-        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+      
+        <li><input type="text" class="search-box" placeholder="search product, author"></li><li>
+            <a href="#" class="search-btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+        </li>
         <li><a href="../login.html">
             <div class="user-img"><i class="fa fa-user" aria-hidden="true"></i>
             <div class="login-logout-popup">
@@ -61,3 +66,14 @@ window.onload = () => {
         })
     }
 }
+
+// search box
+
+const searchBtn = document.querySelector('.search-btn');
+const searchBox = document.querySelector('.search-box');
+
+searchBtn.addEventListener('click', () => {
+    if (searchBox.value.length) {
+        location.href = `/search/${searchBox.value}`;
+    }
+})
