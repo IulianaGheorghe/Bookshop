@@ -31,12 +31,15 @@ const createNav = () => {
         <li class="checkout">
             <a href="../cart.html">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span id="checkout_items" class="checkout_items">2</span>
+                
             </a>
         </li>
     </ul>
     `;
 }
+
+// <span id="checkout_items" class="checkout_items">2</span>
+
 
 createNav();
 

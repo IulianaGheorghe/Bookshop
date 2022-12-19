@@ -67,7 +67,7 @@ const showAlert = (msg, type) => {
 
     alertMsg.innerHTML = msg;
 
-    if (type = 'success') {
+    if (type == 'success') {
         alertImg.src = `img/success.png`;
         alertMsg.style.color = `#0ab50a`;
     } else { // means it is an err
