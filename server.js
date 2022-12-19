@@ -225,6 +225,25 @@ app.get('/search/:key', (req, res) => {
     res.sendFile(path.join(staticPath, "search.html"));
 })
 
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(staticPath, "cart.html"));
+})
+
+app.get('/checkout', (req, res) => {
+    res.sendFile(path.join(staticPath, "checkout.html"));
+})
+
+app.post('/order', (req, res) => {
+    const { order, email, add } = req.body;
+    let docName = email + Math.floor(Math.random() * 123729287419824);
+    db.collection('order').doc(docName).set(req.body)
+    .then(data => {
+
+        res.json({'alert': 'your order is placed'});
+        
+    })
+})
+
 app.listen(3000, () => {
     console.log('listening on port 3000.......');
 })

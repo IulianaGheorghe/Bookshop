@@ -16,7 +16,7 @@ const createProduct = (data) => {
         <div class="product-image">
             <span class="tag">-${data.discount}%</span>
             <img src="${data.image}" class="product-thumb" alt="">
-            <button class="card-action-btn open-btn" onclick="location.href = '/products/${data.id}'"><img src="img/open.png" alt=""></button>
+            <button class="card-action-btn open-btn" onclick="location.href = '/products/${data.id}'"><img src="../img/open.png" alt=""></button>
         </div>
         <div class="product-info">
             <h2 class="product-title">${data.title}</h2>

@@ -28,6 +28,11 @@ const setData = (data) => {
     actualPrice.innerHTML = `$${data.actualPrice}`;
     discount.innerHTML = `( ${data.discount}% off )`;
 
+    // cart btn
+    const cartBtn = document.querySelector('.cart-btn');
+    cartBtn.addEventListener('click', () => {
+        cartBtn.innerHTML = add_product_to_cart('cart', data);
+    })
 }
 
 // fetch data
