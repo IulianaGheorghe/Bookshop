@@ -29,7 +29,7 @@ const createNav = () => {
             </div></div>	
         </a></li>
         <li class="checkout">
-            <a href="#">
+            <a href="../cart.html">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span id="checkout_items" class="checkout_items">2</span>
             </a>
